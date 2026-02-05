@@ -1,0 +1,108 @@
+:root {
+  --bg: #060608;
+  --accent: #8f45ff;
+  --accent-strong: #ff4d95;
+  --fg: #f3f3f8;
+  --muted: rgba(243, 243, 248, 0.7);
+  --card: rgba(16, 16, 24, 0.85);
+  --blur: saturate(140%) blur(20px);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at center, #1a1a25 0%, #050509 70%);
+  color: var(--fg);
+  min-height: 100vh;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+.page {
+  width: min(960px, 100%);
+  display: grid;
+  gap: 32px;
+}
+
+.hero {
+  text-align: center;
+  display: grid;
+  gap: 12px;
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 4px;
+  font-size: clamp(48px, 9vw, 92px);
+  text-transform: uppercase;
+  color: var(--fg);
+  position: relative;
+}
+
+.hero h1::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  border-radius: 999px;
+}
+
+.tagline {
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.lyrics-card {
+  background: var(--card);
+  backdrop-filter: var(--blur);
+  border: 1px solid rgba(143, 69, 255, 0.25);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.lyrics-card h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.lyrics p {
+  margin-bottom: 24px;
+  font-size: 17px;
+}
+
+.lyrics p:last-child {
+  margin-bottom: 0;
+}
+
+.lyrics br {
+  content: '';
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 24px;
+  }
+
+  .lyrics-card {
+    padding: 24px;
+  }
+
+  .lyrics p {
+    font-size: 16px;
+  }
+}
